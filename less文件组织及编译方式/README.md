@@ -5,4 +5,4 @@
 具体的文件组织请从各个主题文件里面入手
 
 项目开发： npm run start
-打包测试： npm run build
+打包测试： npm run build   
