@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     html,body{
+         width: 100%;
+         height: 100%;
+     }
+    </style>
+</head>
+<body>
+    <script>
+        var body = document.body;
+        body.addEventListener('click',function(){
+            console.log("click 事件")
+        })
+        body.addEventListener('mousedown',function(){
+            console.log("mousedown 事件")
+        })
+        body.addEventListener('mouseup',function(){
+            console.log("mouseup 事件")
+        })
+        body.addEventListener('mousemove',function(){
+            console.log("mousemove 事件")
+        })
+        body.addEventListener('touchstart',function(){
+            console.log("touchstart 事件")
+        })
+        body.addEventListener('touchmove',function(){
+            console.log("touchmove 事件")
+        })
+        body.addEventListener('touchend',function(){
+            console.log("touchend 事件")
+        })
+    </script>
+</body>
+</html>

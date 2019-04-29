@@ -1,0 +1,26 @@
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+@mixin rotate($deg) {    
+    -webkit-transform: rotate($deg);
+    -moz-transform: rotate($deg);
+    -o-transform: rotate($deg);
+    -ms-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+
+@mixin border-radius($val) {
+    -moz-border-radius: $val;
+    -webkit-border-radius: $val;
+    border-radius: $val;
+}

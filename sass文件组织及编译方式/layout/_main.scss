@@ -1,0 +1,38 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Source Sans Pro','Helvetica Neue',sans-serif;
+    font-size: $fontSize;
+    color: $textColor;
+    -webkit-font-smoothing: antialiased;
+    padding:0;
+    margin:0;
+    height: 100%;
+    width:100%;
+
+    &.main-body {
+        background-color: $bodyBgColor;
+    }
+
+    .profile-name {
+       width: 100%;
+        position: absolute;
+        bottom: 5px;
+        text-align: center;
+        left: 0;
+        color: #fff;
+    }
+
+    ul {
+        padding:0;
+        margin:0;
+        border:0;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+        -webkit-margin-start: 0;
+        -webkit-margin-end: 0;
+        -webkit-padding-start: 0;
+    }
+}

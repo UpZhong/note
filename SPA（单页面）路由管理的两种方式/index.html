@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-saclable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            padding: 10px;
+            cursor: pointer;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- history方式管理页面路由 -->
+    <section class="history-wraper">
+        <a class="history a">a.html</a>
+        <a class="history b">b.html</a>
+        <script>
+            // 注册路由
+            document.querySelectorAll('.history').forEach(item => {
+                item.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    let link = item.textContent;
+                    window.history.pushState({
+                        data: "123"
+                    }, link, link);
+                },false)
+            })
+            // 监听路由
+            window.addEventListener('popstate', function (event) {
+                console.log({
+                    location: location.href,
+                    state: event.state
+                })
+            },false)
+        </script>
+    </section>
+
+    <!-- hash方式管理页面路由 -->
+    <section class="hash-wraper">
+        <a class="hash a">a.html</a>
+        <a class="hash b">b.html</a>
+        <script>
+            // 注册路由
+            document.querySelectorAll('.hash').forEach(item=>{
+                item.addEventListener('click',function(event){
+                    event.preventDefault();
+                    let link = item.textContent;
+                    location.hash = link;
+                },false)
+            })
+            // 监听路由
+            window.addEventListener('hashchange',function(event){
+                console.log({
+                    location:location.href,
+                    hash:location.hash
+                })
+            },false)
+        </script>
+    </section>
+</body>
+
+</html>

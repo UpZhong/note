@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-saclable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="./static/css/reset.css">
+    <title><%=title %></title>
+</head>
+<body>
+    <div id="root">
+        <% include include/header.html %>
+        <div>
+            {{content}}
+            <a href="/child">点击我跳转到子页面</a>
+            <button v-on:click="clickHandle()">点击我显示console信息</button>
+        </div>
+        <% include include/footer.html %>
+    </div>
+</body>
+<script src='./static/script/vue.js'></script>
+<script src='./static/script/zepto.js'></script>
+<script src='./static/script/pages/index.js'></script>
+</html>

@@ -1,0 +1,100 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-family: "宋体";
+}
+
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	font-size:100%;
+	
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym {
+	border:0;
+}
+/*清除元素获取焦点时的虚线框*/
+a,button,input{blr:expression(this.onFocus=this.blur());outline:none;}
+/**清除浮动**/
+.clearfix:after{
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+}
+.clearfix{
+	*zoom:1;
+	clear: both;
+}
+/***
+  *删除元素display:inline-block;之间的空白
+  *参考资料 http://ued.taobao.com/blog/2012/08/inline-block/
+  */
+.dib-wrap {
+	font-size:0;/* 所有浏览器 */
+	*word-spacing:-1px;/* IE6、7 */
+}
+.dib-wrap .dib{
+	font-size: 12px;
+	letter-spacing: normal;
+	word-spacing: normal;
+	vertical-align:top;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0){
+	/* firefox 中 letter-spacing 会导致脱离普通流的元素水平位移 */
+	.dib-wrap{
+		letter-spacing:-5px;/* Safari 等不支持字体大小为 0 的浏览器, N 根据父级字体调节*/
+	}
+}
+.dib {
+	display: inline-block;
+	*display:inline;
+	*zoom:1;
+}
+img,label,h1,h2,h3,h4,h5,h6,p,input{
+	vertical-align: middle;
+}
+a{
+	text-decoration:none;
+        color:#000000;
+
+}
+img{
+	border: none;
+}
+.floatleft{
+	float: left;
+}
+.floatright{
+	float: right;
+}
+.fleft{
+	float: left;
+}
+.fright{
+	float: right;
+}
+.dnone{
+	display: none;
+}

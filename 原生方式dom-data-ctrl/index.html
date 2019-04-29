@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        (function () {
+            /**
+            * 工具层 util 
+            */
+            var Util = (function () {
+                function utilA() { }
+                function utilB() { }
+                return {
+                    utilA: utilA,
+                    utilB: utilB,
+                }
+            })()
+
+            /**
+            *数据通信层
+            */
+            function dataModel() {
+                function init() { }
+                function getdataA() { }
+                return {
+                    init: init,
+                    getdataA: getdataA
+                }
+            }
+
+            /**
+            *入口文件,在这里面进行逻辑的组装（对dom节点和数据的组装）
+            */
+            function main(){
+
+            }
+
+            // 然后再执行入口文件
+            main();
+
+        })()
+    </script>
+</body>
+
+</html>

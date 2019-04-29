@@ -1,0 +1,44 @@
+.card {
+    @include border-radius($borderRadius);
+    background: #ffffff;
+    padding: 18px;
+    border: 1px solid #eeeeee;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.05);
+    
+    &.card-w-title {
+        padding-top: 0;
+        padding-bottom: 16px;
+    }
+    
+    h1 {
+        font-size: 16px;
+        padding: 14px 0;
+        margin: 0 0 14px 0;
+        color: $headerTextColor;
+        font-weight: bold;
+        border-bottom: 1px solid #efefef;
+        
+        &:first-child {
+            margin-top: 0px;
+        }
+    }
+    
+    h2 {
+        font-size: 22px;
+        font-weight: 400;
+    }
+    
+    h3 {
+        font-size: 20px;
+        font-weight: 400;
+    }
+    
+    h4 {
+        font-size: 18px;
+        font-weight: 400;
+    }
+}
