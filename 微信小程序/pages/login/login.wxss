@@ -17,5 +17,11 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 400rpx;
+}
+
+.user-motto{
+  padding: 20rpx;
+  border: 1rpx solid #aaa;
+  border-radius: 5px;
 }

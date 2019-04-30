@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/login/login",
+    "pages/film-index/film-index"
   ],
   "window": {
     "backgroundTextStyle": "light",

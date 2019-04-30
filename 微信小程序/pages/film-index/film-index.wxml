@@ -1,0 +1,27 @@
+<!--pages/film-index/film-index.wxml-->
+<view class="wraper">
+  <view class="search_wraper">
+    <image src="/images/icon/search.png"></image>
+    <input type="text" confirm-type="search" bindconfirm="searchFilm" placeholder="釜山行、夏有乔木仰望天空"></input>
+  </view>
+  <view class="hot_wraper">
+    <view class="hot_title">
+      <text>正在热映</text>
+      <view bindtap='moreFn' class="hot_more">
+        <text>更多</text>
+        <image src='/images/icon/arrow-right.png'></image>
+      </view>
+
+    </view>
+    <view class="hot_item_wraper">
+      <view bindtap='itemTap' class="hot_item">
+        <image src="/images/movie.png" style="width:200rpx;height:270rpx;"></image>
+        <text>我不是潘金莲</text>
+        <view>
+          <image src="/images/icon/star.png" style="width:17rpx;height:17rpx"></image>
+          <text>6.9</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
