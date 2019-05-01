@@ -19,6 +19,7 @@
         <text>我不是潘金莲</text>
         <view>
           <image src="/images/icon/star.png" style="width:17rpx;height:17rpx"></image>
+          <image src="/images/icon/none-star.png" style="width:17rpx;height:17rpx"></image>
           <text>6.9</text>
         </view>
       </view>
