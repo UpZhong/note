@@ -1,0 +1,15 @@
+@import "read-item/read-item-template.wxss";
+
+.read-wraper{
+  background-color: #E5E5E5;
+}
+
+swiper {
+  width: 100%;
+  height: 600rpx;
+}
+
+image {
+  width: 100%;
+  height: 600rpx;
+}

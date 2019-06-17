@@ -1,0 +1,26 @@
+<!--pages/read/read-detail/read-detail.wxml-->
+<view class='read-detail-wraper'>
+  <view class="read-detail-header-img">
+    <image src='{{isPlayMusic?detailData.music.coverImg:detailData.headImgSrc}}'></image>
+    <image catchtap='musicTap' src="{{isPlayMusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}"></image>
+  </view>
+  <view class="read-detail-author">
+    <image src="{{detailData.avatar}}"></image>
+    <text>{{detailData.author}}</text>
+    <text>发表于</text>
+    <text>{{detailData.dateTime}}</text>
+  </view>
+  <view class='read-detail-title'>
+    <text>{{detailData.title}}</text>
+  </view>
+  <view class="read-detail-tool">
+    <view class="tool-wraper">
+      <image catchtap='collectTap' src="{{collectionSrc}}"></image>
+      <image catchtap='shareTap' src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <view class='read-detail-content'>
+    <text>{{detailData.detail}}</text>
+  </view>
+</view>

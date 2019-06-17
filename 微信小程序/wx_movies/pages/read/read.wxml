@@ -1,0 +1,19 @@
+<import src="read-item/read-item-template.wxml" />
+<view class="read-wraper">
+  <view>
+    <swiper catchtap="onSwiperTap" indicator-dots="true" autoplay="true" interval="5000">
+      <block wx:for="{{imgUrls}}" wx:key="{{item.url}}">
+        <swiper-item>
+          <image src="{{item.url}}" class="slide-image" data-postId="{{item.postId}}" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view>
+    <block wx:for="{{readList}}" wx:key="{{item.postId}}">
+      <view catchtap="goForDetail" data-postId="{{item.postId}}">
+        <template is="readItem" data="{{...item}}" />
+      </view>
+    </block>
+  </view>
+</view>

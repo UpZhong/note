@@ -1,0 +1,60 @@
+<!--pages/movies/movies.wxml-->
+<import src="./movies-item/movies-item-template.wxml" />
+<import src="./movies-grid/movies-grid-template.wxml" />
+
+<view class="movies-wraper">
+  <view class='movies-search'>
+    <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+    <input type="text" confirm-type="search" placeholder="血战钢锯岭、你的名字" placeholder-class="placeholder" bindfocus="onBindFocus" bindconfirm="onBindConfirm"></input>
+    <image catchtap='onCancelImgTap' wx:if="{{searchPanelShow}}" src="/images/icon/xx.png" class="xx-img"></image>
+  </view>
+
+  <block wx:if="{{containerShow}}">
+    <view class='movies-content-wraper'>
+      <view class="movies-title">
+        <text class="slogan">正在热映</text>
+        <view class="movies-more" catchtap='moreTap' data-category="正在热映">
+          <text>更多</text>
+          <image src="/images/icon/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class='movies-content'>
+        <block wx:for="{{inTheatersData}}" wx:key="{{item.index}}">
+          <template is="moviesItem" data="{{...item}}" />
+        </block>
+      </view>
+    </view>
+    <view class='movies-content-wraper'>
+      <view class="movies-title">
+        <text class="slogan">即将上映</text>
+        <view class="movies-more" catchtap='moreTap' data-category="即将上映">
+          <text>更多</text>
+          <image src="/images/icon/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class='movies-content'>
+        <block wx:for="{{comingSoonData}}" wx:key="{{item.index}}">
+          <template is="moviesItem" data="{{...item}}" />
+        </block>
+      </view>
+    </view>
+    <view class='movies-content-wraper'>
+      <view class="movies-title">
+        <text class="slogan">TOP250</text>
+        <view class="movies-more" catchtap='moreTap' data-category="TOP250">
+          <text>更多</text>
+          <image src="/images/icon/arrow-right.png"></image>
+        </view>
+      </view>
+      <view class='movies-content'>
+        <block wx:for="{{top250Data}}" wx:key="{{item.index}}">
+          <template is="moviesItem" data="{{...item}}" />
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <block wx:if="{{searchPanelShow}}">
+    <template is="moviesGrid" data="{{searchData}}" />
+  </block>
+</view>

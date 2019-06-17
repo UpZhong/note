@@ -1,0 +1,9 @@
+<import src="../movies-star/movies-star-template.wxml" />
+
+<template name='moviesItem'>
+  <view class="moviesItem-wraper" catchtap="itemTap" data-movieId="{{id}}">
+    <image class="moviesItem-img" src='{{images.large}}'></image>
+    <text class="moviesItem-title">{{title}}</text>
+    <template is="moviesStar" data="{{...rating}}"/>
+  </view>
+</template>

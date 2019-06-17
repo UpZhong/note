@@ -1,0 +1,15 @@
+@import "../movies-item/movies-item-template.wxss";
+
+.single-view-container {
+  float: left;
+  margin-bottom: 40rpx;
+}
+
+.search-panel {
+  position: absolute;
+  top: 80rpx;
+}
+
+.grid-container{
+    height: 1300rpx;
+}

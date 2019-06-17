@@ -1,0 +1,19 @@
+<template name='readItem'>
+  <view class="read-item-wraper">
+    <view class="read-item-author-date">
+      <image src='{{avatar}}'></image>
+      <text>{{date}}</text>
+    </view>
+    <view class='read-item-content'>
+      <text>{{title}}</text>
+      <image src='{{imgSrc}}'></image>
+      <text>{{content}}</text>
+    </view>
+    <view class='read-item-like'>
+      <image src="/images/icon/chat.png"></image>
+      <text>{{reading}}</text>
+      <image src="/images/icon/view.png"></image>
+      <text>{{collection}}</text>
+    </view>
+  </view>
+</template>

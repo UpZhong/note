@@ -1,0 +1,23 @@
+.star-wraper{
+  display: flex;
+  flex-direction: row;
+}
+.star-stars{
+  display: flex;
+  flex-direction: row;
+  height: 17rpx;
+  margin-right: 24rpx;
+  margin-top: 6rpx;
+}
+
+.star-stars image {
+  padding-left: 3rpx;
+  height: 17rpx;
+  width: 17rpx;
+}
+
+.star-wraper text{
+   color: #1f3463;
+   font-size: 22rpx;
+   line-height: 30rpx;
+}
