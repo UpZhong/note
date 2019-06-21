@@ -13,4 +13,22 @@ export class Util {
         }
         return arr;
     }
+
+    /**
+     * 生成一个近乎有序的数组
+     * @param n 数组长度
+     * @param m 交互顺序的次数
+     */
+    createNearlyOrderArr(n, m) {
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(i)
+        }
+        for (let j = 0; j < m; j++) {
+            let randomX = Math.trunc(Math.random() * n);
+            let randomY = Math.trunc(Math.random() * n);
+            [arr[randomX], arr[randomY]] = [arr[randomY], arr[randomX]]
+        }
+        return arr
+    }
 }
