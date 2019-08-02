@@ -8,6 +8,8 @@
 // 所以简单工厂只能作用于创建的对象数量较少，对象的创建逻辑不复杂使用。
 
 
+// es5中要生成构造函数的静态方法，则可通过shape.prototype.draw = function(){}  来实现
+
 class Shape {
     static draw(param) {
         var shape;
