@@ -1,10 +1,3 @@
-/*
- * @Description: In User Settings Edit
- * @Author: your name
- * @Date: 2019-08-01 15:35:54
- * @LastEditTime: 2019-08-09 09:51:46
- * @LastEditors: Please set LastEditors
- */
 /**
  * 简单工厂模式
  *
