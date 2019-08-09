@@ -7,7 +7,7 @@
  * 本质：
  * 延迟到子类来选择实现
  *
- * 真正的工厂模式与简单工厂模式的区别在于，它不是另外使用一个类或对象来创建自行车，而是使用一个子类。按照正式定义，工厂是一个将其成员对象的实例化推迟到子类中进行的类。
+ * 真正的工厂模式与简单工厂模式的区别在于，它不是另外使用一个类或对象来创建对象，而是使用一个子类。按照正式定义，工厂是一个将其成员对象的实例化推迟到子类中进行的类。
  *
  * 何时使用？
  * 1.动态实现：
@@ -63,7 +63,7 @@ factory.prototype.test = function () {
     this.role = ["登录页", "主页", "测试页"];
     this.test = "我还有一个测试属性哦"
 }
-let admin = new factory("admin");
-let common = new factory("common");
-let test = new factory("test");
+let admin = factory("admin");
+let common = factory("common");
+let test = factory("test");
 console.log(admin,common,test)
