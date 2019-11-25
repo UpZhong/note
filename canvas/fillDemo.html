@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fillDemo</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: 1px solid #666"></canvas>
+    <script>
+        window.onload = function () {
+            let canvas = document.getElementById("canvas");
+            if (canvas.getContext('2d')) {
+                canvas.width = 1366;
+                canvas.height = 768;
+                let context = canvas.getContext('2d');
+                let areaArr = [
+                    { point: [[100, 100], [100, 700], [400, 400]], color: "#F8E50D" },
+                    { point: [[100, 100], [400, 400], [700, 100]], color: "#F64659" },
+                    { point: [[100, 700], [400, 700], [250, 550]], color: "#C3ED5D" },
+                    { point: [[250, 550], [400, 700], [550, 550], [400, 400]], color: "#F7BF1A" },
+                    { point: [[400, 400], [550, 550], [550, 250]], color: "#9E91B9" },
+                    { point: [[550, 550], [700, 400], [700, 100], [550, 250]], color: "#F897C7" },
+                    { point: [[400, 700], [700, 700], [700, 400]], color: "#5BB1CA" },
+                ]
+                areaArr.forEach(item => {
+                    context.beginPath();
+                    item.point.forEach((jtem, j) => {
+                        if (j == 0) {
+                            context.moveTo(jtem[0], jtem[1]);
+                        } else {
+                            context.lineTo(jtem[0], jtem[1]);
+                            if (j == item.point.length-1) {
+                                context.closePath();
+                                context.fillStyle = item.color;
+                                context.fill();
+                            }
+                        }
+                    })
+                })
+            } else {
+                alert("当前浏览器不支持canvas")
+            }
+        }
+    </script>
+</body>
+
+</html>

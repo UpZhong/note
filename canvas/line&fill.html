@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>线&填充</title>
+</head>
+
+<body>
+    <canvas id="canvas" style="border: 1px solid #666"></canvas>
+    <script>
+        window.onload = function () {
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext('2d')) {
+                canvas.width = 1366;
+                canvas.height = 768;
+                var context = canvas.getContext('2d');
+
+                // context.beginPath();
+                // context.moveTo(100, 100);
+                // context.lineTo(100, 700);
+                // context.lineTo(700,700);
+                // context.closePath();
+                // context.lineWidth=2;
+                // { point: [[250, 550], [400, 700], [550, 550], [400, 400],[250, 550]], color: "#F7BF1A" },
+                context.beginPath();
+                context.moveTo(250, 550);
+                context.lineTo(400, 700);
+                context.lineTo(550,550);
+                context.lineTo(400,400);
+                context.closePath();
+                context.lineWidth=2;
+                // 连线
+                // context.strokeStyle='#666';
+                // context.stroke(); 
+                // 填充
+                context.fillStyle='#F7BF1A';
+                context.fill();
+
+            }else{
+                alert("当前浏览器不支持canvas")
+            }
+        }
+    </script>
+</body>
+
+</html>
