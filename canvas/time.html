@@ -6,12 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>timer</title>
-    <style>
-        canvas {
-            margin: 50px;
-            border: 1px solid #ddd;
-        }
-    </style>
 </head>
 
 <body>
@@ -153,51 +147,132 @@
                 ] //:
             ];
             var canvasWidth = 1024,
-                canvasHeight = 768;
-            var r = 5;
+                canvasHeight = 768,
+                marginLeft = 100,
+                marginTop = 100,
+                r = 5;
+
+
+            var colors = ["#33B5E5", "#0099CC", "#AA66CC", "#9933CC", "#99CC00", "#669900", "#FFBB33", "#FF8800","#FF4444", "#CC0000" ];
+            var balls = [];
+            var oldTime = new Date();
             var canvas = document.getElementById("canvas");
             if (canvas.getContext) {
                 canvas.width = canvasWidth;
                 canvas.height = canvasHeight;
                 var context = canvas.getContext('2d');
-
+                updateTime();
                 setInterval(() => {
                     context.clearRect(0, 0, canvasWidth, canvasHeight);
-                    var currentTime = getCurrentTime();
-                    for (var i = 0; i < currentTime.length; i++) {
-                        var num = parseInt(currentTime.substr(i, 1));
-                        if (num + 1) {
-                            draw(num, i)
-                        } else {
-                            draw(10, i)
-                        }
-                    }
-                }, 1000)
+                    updateTime();
+                }, 50)
 
-                function draw(num, index) {
+                function updateTime() {
+                    var currentTime = new Date();
+                    renderTime(marginLeft, marginTop, parseInt(currentTime.getHours() / 10));
+                    renderTime(marginLeft + r * 15, marginTop, parseInt(currentTime.getHours() % 10));
+                    renderTime(marginLeft + r * 30, marginTop, 10);
+                    renderTime(marginLeft + r * 39, marginTop, parseInt(currentTime.getMinutes() / 10));
+                    renderTime(marginLeft + r * 54, marginTop, parseInt(currentTime.getMinutes() % 10));
+                    renderTime(marginLeft + r * 69, marginTop, 10);
+                    renderTime(marginLeft + r * 78, marginTop, parseInt(currentTime.getSeconds() / 10));
+                    renderTime(marginLeft + r * 93, marginTop, parseInt(currentTime.getSeconds() % 10));
+                    ballHandle(currentTime);
+                }
+
+                function renderTime(x, y, num) {
                     digit[num].forEach((item, i) => {
                         item.forEach((jtem, j) => {
                             if (jtem) {
                                 context.beginPath();
-                                context.arc((r * (2 * j + 1) + (index * 16 * r)), r * (2 * i + 1), r, 0, Math.PI / 180 * 360, true);
+                                context.arc(x + r * (2 * j + 1), y + r * (2 * i + 1), r, 0, Math.PI / 180 * 360, true);
                                 context.closePath();
+                                context.fillStyle = "rgb(0,102,153)";
                                 context.fill();
                             }
                         })
                     })
                 }
 
-                function getCurrentTime() {
-                    var timeStr = "";
-                    var hours = new Date().getHours();
-                    var minutes = new Date().getMinutes();
-                    var seconds = new Date().getSeconds();
-                    hours < 10 ? hours = "0" + hours : hours = "" + hours;
-                    minutes < 10 ? minutes = "0" + minutes : minutes = "" + minutes;
-                    seconds < 10 ? seconds = "0" + seconds : seconds = "" + seconds;
-                    timeStr = hours + ":" + minutes + ":" + seconds
-                    return timeStr
+                function ballHandle(currentTime) {
+                    var currentHours = currentTime.getHours();
+                    var currentMinutes = currentTime.getMinutes();
+                    var currentSeconds = currentTime.getSeconds();
+
+                    var oldHours = oldTime.getHours();
+                    var oldMinutes = oldTime.getMinutes();
+                    var oldSeconds = oldTime.getSeconds();
+
+                    if (currentSeconds != oldSeconds) {
+                        if (parseInt(currentHours / 10) != parseInt(oldHours / 10)) {
+                            addBalls(marginLeft, marginTop, parseInt(currentTime.getHours() / 10));
+                        }
+                        if (parseInt(currentHours % 10) != parseInt(oldHours % 10)) {
+                            addBalls(marginLeft + r * 15, marginTop, parseInt(currentTime.getHours() % 10));
+                        }
+                        if (parseInt(currentMinutes / 10) != parseInt(oldMinutes / 10)) {
+                            addBalls(marginLeft + r * 39, marginTop, parseInt(currentTime.getMinutes() / 10));
+                        }
+                        if (parseInt(currentMinutes % 10) != parseInt(oldMinutes % 10)) {
+                            addBalls(marginLeft + r * 54, marginTop, parseInt(currentTime.getMinutes() % 10));
+                        }
+                        if (parseInt(currentSeconds / 10) != parseInt(oldSeconds / 10)) {
+                            addBalls(marginLeft + r * 78, marginTop, parseInt(currentTime.getSeconds() / 10));
+                        }
+                        if (parseInt(currentSeconds % 10) != parseInt(oldSeconds % 10)) {
+                            addBalls(marginLeft + r * 93, marginTop, parseInt(currentTime.getSeconds() % 10));
+                        }
+
+                        oldTime = currentTime;
+                    }
+                    updateBalls();
                 }
+
+                function addBalls(x, y, num) {
+                    digit[num].forEach((item, i) => {
+                        item.forEach((jtem, j) => {
+                            if (jtem) {
+                                balls.push({
+                                    x: x + r * (2 * j + 1),
+                                    y: y + r * (2 * i + 1),
+                                    color: colors[Math.floor(Math.random() * colors.length)],
+                                    g: 1.5 * Math.random(),
+                                    vx: Math.random() > 0.5 ? 4 : -4,
+                                    vy: -5
+                                })
+                            }
+                        })
+                    })
+                }
+
+                function updateBalls() {
+                    balls.forEach((item,i) => {
+                        if(item.x <= marginLeft-r || item.x >= canvasWidth+marginLeft+r){
+                            balls.splice(i,1);
+                        }
+                        item.x += item.vx;
+                        item.y += item.vy;
+                        item.vy += item.g;
+
+                        if (item.y >= canvasHeight - r) {
+                            item.y = canvasHeight - r;
+                            item.vy = -item.vy * 0.75;
+                        }
+                        
+                    })
+                    renderBalls();
+                }
+
+                function renderBalls() {
+                    balls.forEach(item => {
+                        context.beginPath();
+                        context.arc(item.x, item.y, r, 0, Math.PI / 180 * 360, true);
+                        context.closePath();
+                        context.fillStyle = item.color;
+                        context.fill();
+                    })
+                }
+
 
             } else {
                 alert("当前浏览器并不支持canvas")
