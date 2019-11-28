@@ -18,13 +18,6 @@
                 canvas.height = 768;
                 var context = canvas.getContext('2d');
 
-                // context.beginPath();
-                // context.moveTo(100, 100);
-                // context.lineTo(100, 700);
-                // context.lineTo(700,700);
-                // context.closePath();
-                // context.lineWidth=2;
-                // { point: [[250, 550], [400, 700], [550, 550], [400, 400],[250, 550]], color: "#F7BF1A" },
                 context.beginPath();
                 context.moveTo(250, 550);
                 context.lineTo(400, 700);
@@ -33,8 +26,8 @@
                 context.closePath();
                 context.lineWidth=2;
                 // 连线
-                // context.strokeStyle='#666';
-                // context.stroke(); 
+                context.strokeStyle='#666';
+                context.stroke(); 
                 // 填充
                 context.fillStyle='#F7BF1A';
                 context.fill();
