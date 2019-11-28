@@ -32,6 +32,10 @@
                 context.fillStyle='#F7BF1A';
                 context.fill();
 
+                canvas.addEventListener("click",function(evnet){
+                    console.log(evnet)
+                })
+
             }else{
                 alert("当前浏览器不支持canvas")
             }
