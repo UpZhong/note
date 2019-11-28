@@ -5,3 +5,6 @@
 2. context.translate() 方法重新映射画布上的 (0,0) 位置
 
 3. ele.getBoundingClientRect() 返回一组矩形的集合, 即：是与该元素相关的 CSS 边框集合包含 bottom、height、left、right、top、width、x、y
+
+4. result = window.requestAnimationFrame(fn)  执行动画  
+   window.cancelAnimationFrame(result)  停止动画
