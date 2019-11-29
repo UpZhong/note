@@ -31,7 +31,7 @@
             const SWING = 0.5;
             (function move() {
                 window.requestAnimationFrame(move);
-
+                // 脉冲运动的要点就是利用正弦波或余弦波的规律动态修改 物体的缩放比例
                 ball.scaleX = ball.scaleY = initScale + Math.sin(angle) * SWING;
 
                 angle += 0.05;
