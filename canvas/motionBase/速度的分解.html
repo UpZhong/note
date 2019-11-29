@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>任意方向上的加速度</title>
+    <title>速度的分解</title>
 </head>
 
 <body>
@@ -26,15 +26,13 @@
                 r: 30
             }).render(ctx);
 
-            let angle = C.toRad(30), a = 0.1, vx = 0, vy = 0;
+            let angle = C.toRad(30), v = 1;
 
             (function move() {
                 window.requestAnimationFrame(move);
-                let ax = a * Math.cos(angle);
-                let ay = a * Math.sin(angle);
-
-                vx += ax;
-                vy += ay;
+                let vx = v * Math.cos(angle);
+                let vy = v * Math.sin(angle);
+                
                 ball.x += vx;
                 ball.y += vy;
                 ctx.clearRect(0, 0, W, H);
