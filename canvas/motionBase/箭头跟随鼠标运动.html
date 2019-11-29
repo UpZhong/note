@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>箭头跟随鼠标运动</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script src="../assets/components/Arrow.js"></script>
+    <script src="../assets/util/util.js"></script>
+    <script>
+        window.onload = function () {
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            let W = (canvas.width = 800);
+            let H = (canvas.height = 600);
+
+            let arrow = new Arrow({
+                x: W / 2,
+                y: H / 2,
+                w: 100,
+                h: 60
+            }).render(ctx);
+
+            let pos = C.getOffset(canvas);
+            let speed = 3;
+            (function move() {
+                window.requestAnimationFrame(move);
+                let dx = pos.x - arrow.x, dy = pos.y - arrow.y;
+                let angle = Math.atan2(dy, dx);
+
+                let vx = speed * Math.cos(angle);
+                let vy = speed * Math.sin(angle);
+
+                // 调整箭头的方向并不断修改箭头的位置
+                arrow.x += vx;
+                arrow.y += vy;
+                arrow.rotation = angle;
+
+                ctx.clearRect(0, 0, W, H);
+                arrow.render(ctx)
+            })();
+        };
+    </script>
+</body>
+
+</html>
