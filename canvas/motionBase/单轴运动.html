@@ -28,8 +28,8 @@
 
             (function move() {
                 window.requestAnimationFrame(move);
-
                 ctx.clearRect(0, 0, W, H);
+
                 ball.x += vx;
                 ball.render(ctx);
             })()

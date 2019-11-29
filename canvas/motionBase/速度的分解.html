@@ -30,12 +30,13 @@
 
             (function move() {
                 window.requestAnimationFrame(move);
+                ctx.clearRect(0, 0, W, H);
+                
                 let vx = v * Math.cos(angle);
                 let vy = v * Math.sin(angle);
                 
                 ball.x += vx;
                 ball.y += vy;
-                ctx.clearRect(0, 0, W, H);
                 ball.render(ctx);
             })()
         }

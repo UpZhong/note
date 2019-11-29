@@ -28,8 +28,8 @@
             let vr = 2 * Math.PI / 180;
             (function move() {
                 window.requestAnimationFrame(move);
-
                 ctx.clearRect(0, 0, W, H);
+
                 ball.rotation += vr;
                 ball.render(ctx);
             })()

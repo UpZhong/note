@@ -30,6 +30,8 @@
             let speed = 3;
             (function move() {
                 window.requestAnimationFrame(move);
+                ctx.clearRect(0, 0, W, H);
+                
                 let dx = pos.x - arrow.x, dy = pos.y - arrow.y;
                 let angle = Math.atan2(dy, dx);
 
@@ -41,7 +43,6 @@
                 arrow.y += vy;
                 arrow.rotation = angle;
 
-                ctx.clearRect(0, 0, W, H);
                 arrow.render(ctx)
             })();
         };

@@ -30,6 +30,8 @@
 
             (function move() {
                 window.requestAnimationFrame(move);
+                ctx.clearRect(0, 0, W, H);
+                
                 let ax = a * Math.cos(angle);
                 let ay = a * Math.sin(angle);
 
@@ -37,7 +39,6 @@
                 vy += ay;
                 ball.x += vx;
                 ball.y += vy;
-                ctx.clearRect(0, 0, W, H);
                 ball.render(ctx);
             })()
         }

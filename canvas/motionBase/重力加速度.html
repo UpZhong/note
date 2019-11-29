@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>单轴加速度</title>
+    <title>重力加速度</title>
 </head>
 
 <body>
@@ -20,21 +20,25 @@
             let H = canvas.height = 600;
 
             let ball = new Ball({
-                x: 50,
-                y: H / 2,
-                r: 50
+                x: W / 2,
+                y: 30,
+                r: 30
             }).render(ctx);
 
-            let vx = 0,
-                ax = 0.1;
+            let a = 0.1, vy = 0;
             (function move() {
                 window.requestAnimationFrame(move);
                 ctx.clearRect(0, 0, W, H);
 
-                vx += ax;
-                ball.x += vx;
-                ball.render(ctx);
+                vy += a;
+                // 触碰到边界回弹，且有一定的速度损失
+                if (ball.y + ball.r >= H) {
+                    ball.y = H - ball.r;
+                    vy *= -0.8;
+                }
 
+                ball.y += vy;
+                ball.render(ctx);
             })()
         }
     </script>

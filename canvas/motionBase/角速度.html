@@ -30,12 +30,13 @@
             let mouse = C.getOffset(canvas);
             (function move(){
                 window.requestAnimationFrame(move);
+                ctx.clearRect(0, 0, W, H);
+                
                 let dx = mouse.x - arrow.x;
                 let dy = mouse.y - arrow.y;
                 let angle = Math.atan2(dy,dx);
 
                 arrow.rotation = angle;
-                ctx.clearRect(0, 0, W, H);
                 arrow.render(ctx);
             })()
         }

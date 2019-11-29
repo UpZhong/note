@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>单轴加速度</title>
+    <title>线性运动</title>
 </head>
 
 <body>
@@ -15,26 +15,29 @@
         window.onload = function () {
             const canvas = document.getElementById("canvas");
             const ctx = canvas.getContext("2d");
-
             let W = canvas.width = 800;
             let H = canvas.height = 600;
 
             let ball = new Ball({
                 x: 50,
                 y: H / 2,
-                r: 50
+                r: 30
             }).render(ctx);
 
-            let vx = 0,
-                ax = 0.1;
+            let angle = 0;
+            let vx = 1;
+            let vy = 0.5;
+            const SWING = 60;
             (function move() {
                 window.requestAnimationFrame(move);
                 ctx.clearRect(0, 0, W, H);
 
-                vx += ax;
                 ball.x += vx;
+                // 通过sin函数不断调整y轴的位置
+                ball.y = H / 2 + Math.sin(angle) * SWING;
+                angle += 0.05;
+                angle %= Math.PI * 2;
                 ball.render(ctx);
-
             })()
         }
     </script>

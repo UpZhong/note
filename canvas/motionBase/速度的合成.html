@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>单轴加速度</title>
+    <title>速度的合成</title>
 </head>
 
 <body>
     <canvas id="canvas"></canvas>
+    <script src="../assets/util/util.js"></script>
     <script src="../assets/components/Ball.js"></script>
     <script>
         window.onload = function () {
@@ -20,21 +21,20 @@
             let H = canvas.height = 600;
 
             let ball = new Ball({
-                x: 50,
-                y: H / 2,
-                r: 50
+                x: 30,
+                y: 30,
+                r: 30
             }).render(ctx);
 
-            let vx = 0,
-                ax = 0.1;
+            let angle = C.toRad(30), vx = 1, vy = 1;
+
             (function move() {
                 window.requestAnimationFrame(move);
                 ctx.clearRect(0, 0, W, H);
 
-                vx += ax;
                 ball.x += vx;
+                ball.y += vy;
                 ball.render(ctx);
-
             })()
         }
     </script>

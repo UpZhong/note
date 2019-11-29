@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>单轴加速度</title>
+    <title>圆周运动</title>
 </head>
 
 <body>
@@ -15,26 +15,33 @@
         window.onload = function () {
             const canvas = document.getElementById("canvas");
             const ctx = canvas.getContext("2d");
-
             let W = canvas.width = 800;
             let H = canvas.height = 600;
 
             let ball = new Ball({
-                x: 50,
+                x: W / 2,
                 y: H / 2,
-                r: 50
+                r: 30
             }).render(ctx);
 
-            let vx = 0,
-                ax = 0.1;
+            let angle = 0;
+            let speed = 0.02;
+            let r = 150;
+
             (function move() {
                 window.requestAnimationFrame(move);
                 ctx.clearRect(0, 0, W, H);
 
-                vx += ax;
-                ball.x += vx;
-                ball.render(ctx);
+                ctx.beginPath();
+                ctx.arc(W / 2, H / 2, r, 0, Math.PI * 2);
+                ctx.stroke();
 
+                // 通过角度的变换不断修改ball的x,y坐标
+                ball.x = W / 2 + r * Math.cos(angle);
+                ball.y = H / 2 + r * Math.sin(angle);
+                angle += speed;
+                angle %= Math.PI * 2;
+                ball.render(ctx);
             })()
         }
     </script>

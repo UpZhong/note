@@ -30,12 +30,13 @@
             const SWING = 160;  // 振幅
             (function move() {
                 window.requestAnimationFrame(move);
+                ctx.clearRect(0, 0, W, H);
+                
                 // 平滑运动的要点就是利用正弦波或余弦波的规律动态修改 物体位置
                 ball.x =W/2 + Math.sin(angle) * SWING;
 
                 angle += 0.05;
                 angle %= Math.PI * 2;
-                ctx.clearRect(0, 0, W, H);
                 ball.render(ctx);
             })()
         }
