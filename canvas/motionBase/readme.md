@@ -10,3 +10,5 @@
    window.cancelAnimationFrame(result) 停止动画
 
 5. atan2(y,x) 返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间
+
+6. angle %= Math.PI * 2 意思是angle取值为0~2PI
