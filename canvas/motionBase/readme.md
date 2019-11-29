@@ -14,3 +14,5 @@
 6. angle %= Math.PI * 2 意思是angle取值为0~2PI
 
 7. Math.sin()  Math.cos() Math.tan() 接受的参数都是以弧度表示的角度 rad = angle * (2PI/360) 
+
+8. context.save() 保存当前画布状态A   context.restore()   恢复当前画布的状态到A状态
