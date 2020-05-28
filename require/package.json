@@ -1,0 +1,23 @@
+{
+  "name": "require",
+  "version": "1.0.0",
+  "description": "require demo",
+  "main": "module/main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "test": "test"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "amd-optimize": "^0.6.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2",
+    "run-sequence": "^2.2.1"
+  }
+}
