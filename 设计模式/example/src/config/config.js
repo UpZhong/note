@@ -1,0 +1,1 @@
+export const LIST_URL = '/api/list.json'
