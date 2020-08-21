@@ -71,11 +71,19 @@ function isSorted(arr, n) {
     return true
 }
 
+/**
+ * 执行排序函数并验证排序正确性及给出耗时
+ * @param fn 
+ * @param arr 
+ * @param n 
+ */
 function sortTime(fn, arr, n) {
     console.time("排序时间")
-    fn(arr, n)
+    const result = fn(arr, n)
     console.timeEnd("排序时间")
-    const str = isSorted(arr, n) ? '已正确排序' : '排序错误'
+    let flag;
+    result ? flag = isSorted(result, n) : flag = isSorted(arr, n)
+    const str = flag ? '已正确排序' : '排序错误'
     console.log(str)
 }
 

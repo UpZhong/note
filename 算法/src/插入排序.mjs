@@ -34,6 +34,11 @@ function insertSort_u(arr, n) {
     }
 }
 
+export {
+    insertSort,
+    insertSort_u
+}
+
 // 测试
 const n = 100
 // const arr = orginalArr(n, 5, n)
